@@ -1,0 +1,8 @@
+numpy
+pandas
+matplotlib
+PyMySQL
+Django
+scikit-learn
+seaborn
+openpyxl

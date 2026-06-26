@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Flight Ticket Price Predictor</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+```
+<style>
+
+    .dashboard-card{
+        background:white;
+        margin:20px;
+        padding:25px;
+        border-radius:15px;
+        box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .welcome-box{
+        text-align:center;
+        background:linear-gradient(135deg,#2563eb,#1e40af);
+        color:white;
+        padding:25px;
+        border-radius:15px;
+        margin-bottom:20px;
+    }
+
+    .welcome-box h2{
+        color:white;
+        margin-bottom:10px;
+    }
+
+    .graph{
+        max-width:95%;
+        border-radius:12px;
+        box-shadow:0 4px 15px rgba(0,0,0,0.2);
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+```
+<div id="header">
+    <div class="plane-left">✈</div>
+<div class="plane-right">✈</div>
+<div class="flight-path"></div>
+    <div id="logo">
+        Flight Ticket Price Predictor
+    </div>
+</div>
+
+<div id="menu">
+    <ul>
+        <li><a href="{% url 'DatasetCollection' %}">Dataset Collection</a></li>
+        <li><a href="{% url 'DatasetCleaning' %}">Data Cleaning</a></li>
+        <li><a href="{% url 'TrainRF' %}">Train Model</a></li>
+        <li><a href="{% url 'PredictPrices' %}">Predict Price</a></li>
+        <li><a href="{% url 'index' %}">Logout</a></li>
+    </ul>
+</div>
+
+
+
+<div class="dashboard-card">
+
+    <div class="welcome-box">
+
+    <h2>
+        ✈ Flight Price Prediction Dashboard
+    </h2>
+
+    <p>
+        Analyze Dataset • Train Random Forest • Predict Air Fare
+    </p>
+
+</div>
+    {% if data %}
+
+<h2 class="section-title">
+    Flight Dataset Analysis
+</h2>
+
+<div style="margin-top:20px;">
+    {{ data|safe }}
+</div>
+
+{% endif %}
+
+    {% if graph1b64 %}
+    <div style="text-align:center;margin-top:25px;">
+    </div>
+    {% endif %}
+
+</div>
+```
+
+</div>
+
+</body>
+</html>

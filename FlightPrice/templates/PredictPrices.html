@@ -1,0 +1,231 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Flight Ticket Price Predictor</title>
+
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<script>
+
+function validate(){
+
+    var source=document.forms["f1"]["t5"].value;
+    var dest=document.forms["f1"]["t6"].value;
+
+    if(source===dest){
+        alert("Source and Destination cannot be same");
+        return false;
+    }
+
+    return true;
+}
+
+</script>
+
+<style>
+
+.predict-card{
+    width:650px;
+    margin:25px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.predict-card h2{
+    text-align:center;
+    color:#1e3c72;
+    margin-bottom:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+```
+<div id="header">
+    <div class="plane-left">✈</div>
+<div class="plane-right">✈</div>
+<div class="flight-path"></div>
+    <div id="logo">
+        Flight Ticket Price Predictor
+    </div>
+</div>
+
+<div id="menu">
+    <ul>
+        <li><a href="{% url 'DatasetCollection' %}">Dataset Collection</a></li>
+        <li><a href="{% url 'DatasetCleaning' %}">Data Cleaning</a></li>
+        <li><a href="{% url 'TrainRF' %}">Train Model</a></li>
+        <li><a href="{% url 'PredictPrices' %}">Predict Price</a></li>
+        <li><a href="{% url 'index' %}">Logout</a></li>
+    </ul>
+</div>
+
+<div class="content-box">
+
+<div class="hero-banner">
+
+    <h1>
+        Flight Price Prediction Dashboard
+    </h1>
+
+    <p>
+        Predict airline fares instantly using
+        Machine Learning and Random Forest.
+    </p>
+
+    <div class="plane1">✈</div>
+    <div class="plane2">🛫</div>
+    <div class="cloud1">☁</div>
+
+</div>
+<div class="predict-card">
+
+    <h2>Flight Price Prediction</h2>
+
+    <form
+        name="f1"
+        method="post"
+        action="{% url 'PredictPricesAction' %}"
+        onsubmit="return validate()">
+
+        {% csrf_token %}
+
+        <table>
+
+            <tr>
+    <td>Travel Date</td>
+    <td>
+        <input
+            type="date"
+            name="journey_date"
+            id="journey_date"
+            required>
+    </td>
+</tr>
+
+            <tr>
+                <td>Airline</td>
+                <td>
+                    <select name="t4" required>
+                        <option value="">
+                            Select Airline
+                        </option>
+```
+
+<option value="Air Asia">Air Asia</option>
+<option value="Air India">Air India</option>
+<option value="GoAir">GoAir</option>
+<option value="IndiGo">IndiGo</option>
+<option value="Jet Airways">Jet Airways</option>
+<option value="Jet Airways Business">Jet Airways Business</option>
+<option value="Multiple carriers">Multiple carriers</option>
+<option value="Premium">Premium</option>
+<option value="SpiceJet">SpiceJet</option>
+<option value="Trujet">Trujet</option>
+<option value="Vistara">Vistara</option>
+<option value="Vistara Premium">Vistara Premium</option>
+
+```
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Source City</td>
+                <td>
+                    <select name="t5" required>
+                        <option value="">
+                            Select Source City
+                        </option>
+                        <option>Banglore</option>
+                        <option>Chennai</option>
+                        <option>Delhi</option>
+                        <option>Kolkata</option>
+                        <option>Mumbai</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Destination City</td>
+                <td>
+                    <select name="t6" required>
+                        <option value="">
+                            Select Destination City
+                        </option>
+                        
+                        <option>Banglore</option>
+                        <option>Cochin</option>
+                        <option>Delhi</option>
+                        <option>Hyderabad</option>
+                        <option>Kolkata</option>
+                        <option>New Delhi</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input
+                        type="submit"
+                        value="Predict Flight Price">
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+    <div class="stats-row">
+
+    <div class="stat">
+        <h3>10K+</h3>
+        <p>Flights Analyzed</p>
+    </div>
+
+    <div class="stat">
+        <h3>92.4%</h3>
+        <p>Accuracy</p>
+    </div>
+
+    <div class="stat">
+        <h3>24×7</h3>
+        <p>Prediction Engine</p>
+    </div>
+
+</div>
+
+</div>
+```
+
+</div>
+
+<script>
+window.onload = function(){
+
+    let today = new Date();
+
+    let dd = String(today.getDate()).padStart(2,'0');
+    let mm = String(today.getMonth()+1).padStart(2,'0');
+    let yyyy = today.getFullYear();
+
+    let current = yyyy + "-" + mm + "-" + dd;
+
+    document.getElementById("journey_date").min = current;
+}
+</script>
+
+</body>
+</html>

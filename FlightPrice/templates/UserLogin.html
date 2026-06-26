@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Ticket Price Predictor</title>
+
+    <link rel="stylesheet"
+          href="{% static 'style.css' %}">
+
+<script>
+function validate(){
+
+    var x=document.forms["f1"]["username"].value;
+    var y=document.forms["f1"]["password"].value;
+
+    if(x==""){
+        alert("Enter Username");
+        return false;
+    }
+
+    if(y==""){
+        alert("Enter Password");
+        return false;
+    }
+
+    return true;
+}
+</script>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <div id="header">
+        <div id="logo">
+            ✈ Flight Ticket Price Predictor
+
+            <div class="subtitle">
+                Airline Ticket Price Prediction System
+            </div>
+        </div>
+    </div>
+
+    <div id="menu">
+        <ul>
+
+            <li>
+                <a href="{% url 'index' %}">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'UserLogin' %}">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'Signup' %}">
+                    Register
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="form-card">
+
+        <h2>User Login</h2>
+
+        <p>{{ data }}</p>
+
+        <form
+            name="f1"
+            method="post"
+            action="{% url 'UserLoginAction' %}"
+            onsubmit="return validate()">
+
+            {% csrf_token %}
+
+            <label>Username</label>
+
+            <input type="text"
+                   name="username">
+
+            <br><br>
+
+            <label>Password</label>
+
+            <input type="password"
+                   name="password">
+
+            <br><br>
+
+            <input type="submit"
+                   value="Login">
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

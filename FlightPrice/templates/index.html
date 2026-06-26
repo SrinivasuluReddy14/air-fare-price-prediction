@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Ticket Price Predictor</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Header -->
+    <div id="header">
+        <div class="plane-left">✈</div>
+<div class="plane-right">✈</div>
+<div class="flight-path"></div>
+
+    <div id="logo">
+
+        ✈ Flight Ticket Price Predictor
+
+        <div class="subtitle">
+            Machine Learning Based Airline Fare Prediction System
+        </div>
+
+
+    <div class="ml-badge">
+        AI Powered
+    </div>
+
+
+    </div>
+
+</div>
+
+    <!-- Navigation -->
+    <div id="menu">
+<ul>
+
+<li>
+<a href="{% url 'index' %}">
+Home
+</a>
+</li>
+
+<li>
+<a href="{% url 'UserLogin' %}">
+Login
+</a>
+</li>
+
+<li>
+<a href="{% url 'Signup' %}">
+Register
+</a>
+</li>
+
+</ul>
+</div>
+    <!-- Banner Image -->
+    <div class="hero-card">
+
+        <span class="badge">
+            Smart Fare Prediction
+        </span>
+
+        <h1>
+            Predict Flight Ticket Prices
+            with Machine Learning
+        </h1>
+
+        <p>
+            Our Random Forest based model predicts
+            flight ticket prices accurately using
+            historical airline data.
+        </p>
+
+        <div class="features-grid">
+
+    <div class="feature-card card-purple">
+        <h3> High Accuracy</h3>
+        <p>ML Powered</p>
+    </div>
+
+    <div class="feature-card card-green">
+        <h3> Fast Prediction</h3>
+        <p>Real-Time Results</p>
+    </div>
+
+    <div class="feature-card card-orange">
+        <h3> Reliable Model</h3>
+        <p>Random Forest</p>
+    </div>
+
+    <div class="feature-card card-red">
+        <h3> Data Driven</h3>
+        <p>Insights</p>
+    </div>
+
+</div>
+    </div>
+
+
+</div>
+    <!-- HOME CARD START -->
+    <div class="home-card">
+
+        <h2>
+            Welcome to Flight Ticket Price Predictor
+        </h2>
+
+        <p>
+            Predict airline ticket prices using Machine Learning
+            and Random Forest Regression.
+        </p>
+
+        <h3>
+            Features
+        </h3>
+
+        <ul>
+            <li>User Registration & Login</li>
+            <li>Dataset Visualization</li>
+            <li>Data Cleaning & Preprocessing</li>
+            <li>Random Forest Model Training</li>
+            <li>Flight Ticket Price Prediction</li>
+        </ul>
+
+        <br>
+
+        <h3>
+            How It Works
+        </h3>
+
+        <p>
+            The system analyzes Airline, Source City,
+            Destination City and Travel Date using
+            Machine Learning techniques to estimate
+            the expected flight fare.
+        </p>
+
+    </div>
+    <!-- HOME CARD END -->
+
+    <div class="stats-container">
+
+    <div class="stat-box">
+        <h2>10K+</h2>
+        <p>Flights Analyzed</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>5K+</h2>
+        <p>Predictions Made</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>92.4%</h2>
+        <p>Model Accuracy</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>24×7</h2>
+        <p>Prediction Engine</p>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
